@@ -1,20 +1,20 @@
-[gd_resource type="ShaderMaterial" load_steps=7 format=2]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://o1i3wy04xrj0"]
 
-[ext_resource path="res://assets/characterMedium/offsets.exr" type="Texture" id=1]
-[ext_resource path="res://assets/characterMedium/albedo.png" type="Texture" id=2]
-[ext_resource path="res://assets/characterMedium/palette.png" type="Texture" id=3]
-[ext_resource path="res://assets/characterMedium/tintmask.png" type="Texture" id=4]
-[ext_resource path="res://assets/characterMedium/normals.png" type="Texture" id=5]
+[ext_resource type="Texture2D" uid="uid://dmb0piravypp8" path="res://assets/characterMedium/offsets.exr" id="1"]
+[ext_resource type="Texture2D" uid="uid://bss7eackiwhdy" path="res://assets/characterMedium/albedo.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://2xqnu5lq35o2" path="res://assets/characterMedium/palette.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://crygt2o5dfhmy" path="res://assets/characterMedium/tintmask.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://onjxgt18cps1" path="res://assets/characterMedium/normals.png" id="5"]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id="1"]
 code = "shader_type spatial;
 render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
 
 uniform sampler2D offset_map;
 uniform sampler2D normal_map;
-uniform sampler2D texture_albedo: hint_albedo;
-uniform sampler2D texture_tintmask: hint_albedo;
-uniform sampler2D texture_palette: hint_albedo;
+uniform sampler2D texture_albedo: source_color;
+uniform sampler2D texture_tintmask: source_color;
+uniform sampler2D texture_palette: source_color;
 
 uniform float start_frame = 0;
 uniform float end_frame = 6.0;
@@ -80,17 +80,19 @@ void fragment(){
 	SPECULAR = specular;
 }
 "
+metadata/_edit_res_path = "res://materials/clappers_shadermaterial.tres::1"
 
 [resource]
-shader = SubResource( 1 )
-shader_param/start_frame = 0.0
-shader_param/end_frame = 6.0
-shader_param/time_scale = 0.5
-shader_param/specular = 0.2
-shader_param/metallic = null
-shader_param/roughness = 0.5
-shader_param/offset_map = ExtResource( 1 )
-shader_param/normal_map = ExtResource( 5 )
-shader_param/texture_albedo = ExtResource( 2 )
-shader_param/texture_tintmask = ExtResource( 4 )
-shader_param/texture_palette = ExtResource( 3 )
+render_priority = 0
+shader = SubResource("1")
+shader_parameter/start_frame = 0.0
+shader_parameter/end_frame = 6.0
+shader_parameter/time_scale = 0.5
+shader_parameter/specular = 0.2
+shader_parameter/metallic = null
+shader_parameter/roughness = 0.5
+shader_parameter/offset_map = ExtResource("1")
+shader_parameter/normal_map = ExtResource("5")
+shader_parameter/texture_albedo = ExtResource("2")
+shader_parameter/texture_tintmask = ExtResource("4")
+shader_parameter/texture_palette = ExtResource("3")

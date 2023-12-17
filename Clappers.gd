@@ -1,10 +1,10 @@
-extends Spatial
+extends Node3D
 
 const MAX_COLOURS = 8
 const MAX_COLUMNS = 20
 
-onready var mm_instance = $MultiMeshInstance
-onready var rows = $Rows
+@onready var mm_instance = $MultiMeshInstance3D
+@onready var rows = $Rows
 
 func _ready():
 	
