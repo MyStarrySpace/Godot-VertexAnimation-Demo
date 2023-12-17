@@ -1,5 +1,7 @@
-res://materials/clappers_shadermaterial.tres
 res://default_env.tres
-res://Clapper.tscn
+res://Clappers.tscn
 res://materials/clapper_shadermaterial.tres
+res://clappers_env.tres
 res://materials/clappers_shader.tres
+res://Clapper.tscn
+res://Clappers.gd

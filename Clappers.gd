@@ -13,7 +13,7 @@ func _ready():
 	var mm_count = mm_rows * mm_columns
 	
 	mm_instance.multimesh.instance_count = 0 #has to be zero to make changes to multimesh
-	mm_instance.multimesh.custom_data_format = MultiMesh.CUSTOM_DATA_FLOAT
+	#mm_instance.multimesh.custom_data_format = MultiMesh.CUSTOM_DATA_FLOAT
 	mm_instance.multimesh.instance_count = mm_count
 	
 	var mm_index = 0
